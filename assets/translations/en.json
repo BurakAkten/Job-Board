@@ -1,0 +1,16 @@
+{
+  "appName": "Job Board",
+  "controlInternetConnectionAndTryAgain": "Please check your internet!",
+  "sthWentWrong": "Something wrong!",
+  "jobs": "JOBS",
+  "acceptedJobs": "ACCEPTED JOBS",
+  "appBarTitle": "Gophr Job Board",
+  "reject": "REJECT",
+  "accept": "ACCEPT",
+  "pickUp": "Pick-up",
+  "dropOff": "Drop-off",
+  "deliveryDate": "Expected delivery date:",
+  "noJobsMessage": "There is no Jobs to show!",
+  "tryAgain": "Try Again",
+  "pleasePressFiveSecondsMessage": "Please press button 5 seconds."
+}
