@@ -20,3 +20,13 @@ class BaseErrorState extends BaseState {
   final String? errorMessage;
   BaseErrorState({this.errorMessage});
 }
+
+class ShowErrorToastState extends BaseState {
+  final String errorMessage;
+  ShowErrorToastState({required this.errorMessage});
+}
+
+class ShowSuccessToastState extends BaseState {
+  final String message;
+  ShowSuccessToastState({required this.message});
+}

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:job_board/base/constants/app_constants.dart';
 import 'package:job_board/base/states/base_state.dart';
+import 'package:job_board/base/views/base_view.dart';
 import 'package:job_board/domain/dtos/job_dto.dart';
 import 'package:job_board/screens/job_board/job_board_service.dart';
 import 'package:job_board/screens/job_board/viewmodels/job_board_viewmodel.dart';
@@ -51,21 +51,11 @@ class _JobBoardScreenState extends State<JobBoardScreen> with SingleTickerProvid
           Expanded(
             child: Container(
               color: AppColors.white,
-              child: BlocProvider(
-                create: (context) => JobBoardViewModel(JobBoardService()),
-                child: BlocConsumer<JobBoardViewModel, BaseState>(
-                  listener: (context, state) {},
-                  builder: (context, state) {
-                    if (state is BaseCompletedState && state.data != null) {
-                      return _buildTabBarView(state);
-                    } else if ((state is BaseLoadingSate && state.isLoading) || state is BaseInitialState) {
-                      return const Center(child: CircularProgressIndicator.adaptive());
-                    } else {
-                      var errorState = state as BaseErrorState;
-                      return TryAgainWidget(errorState: errorState);
-                    }
-                  },
-                ),
+              child: BaseView<JobBoardViewModel>(
+                vmBuilder: (context) => JobBoardViewModel(JobBoardService()),
+                listener: (context, state) => debugPrint(state.runtimeType.toString()),
+                builder: (context, state) => _buildTabBarView(state as BaseCompletedState),
+                errorBuilder: (context, state) => TryAgainWidget(errorState: state),
               ),
             ),
           ),

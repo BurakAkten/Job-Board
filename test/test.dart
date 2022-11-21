@@ -1,4 +1,3 @@
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:job_board/domain/dtos/job_dto.dart';
